@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app-7">
+        <p>Những thứ họ mua:</p>
+        <ol>
+            <!--
+              Ở đây chúng ta cung cấp một object "todo" cho mỗi component
+              "todo-item". Bằng cách này nội dung của từng component trở nên động.
+              Mỗi component cũng sẽ nhận một thuộc tính "key". Chúng ta sẽ
+              nói thêm về thuộc tính này sau.
+            -->
+            <todo-item
+              v-for="item in groceryList"
+              v-bind:todo="item"
+              v-bind:key="item.id">
+            </todo-item>
+          </ol>
+      </div>
+</body>
+<script src="main.js"></script>
+</html>
