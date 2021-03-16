@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+</head>
+<body>
+     
+      <form id="main1" v-cloak>
+
+        <h1>Services</h1>
+    
+        <ul>
+            
+            <li v-for="service in services" v-on:click="toggleActive(service)" v-bind:class="{ 'active': service.active}">
+               
+                {{service.name}} <span>{{service.price | currency}}</span>
+            </li>
+        </ul>
+    
+        <div class="total">
+            
+            Total: <span>{{total() | currency}}</span>
+        </div>
+    
+    </form>
+    <br>
+
+    <form id="main2" v-cloak>
+
+        <div class="bar">
+          
+    
+            <input type="text" v-model="searchString" placeholder="Enter your search terms" />
+        </div>
+    
+        <ul>
+            
+    
+            <li v-for="article in filteredArticles">
+                <a v-bind:href="article.url"><img v-bind:src="article.image" /></a>
+                <p>{{article.title}}</p>
+            </li>
+        </ul>
+    
+    </form>
+       
+      
+</body>
+<script src="main.js"></script>
+</html>
